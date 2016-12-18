@@ -22,7 +22,7 @@ int main() {
   printf("[SERVER] Connected to client...\n");
 
   read( from_client, buffer, sizeof(buffer) );
-  printf("[SERVER] Received client message: &s\n" , buffer);
+  printf("[SERVER] Received client message: %s\n" , buffer);
   
   process( buffer );
   write( to_client, buffer, sizeof(buffer));
