@@ -14,11 +14,18 @@ int main() {
   int to_client, from_client;
   char buffer[MESSAGE_BUFFER_SIZE];
   
+  printf ("[SERVER] Initialized server...\n");
+  
   to_client = server_handshake( &from_client );
+  
+  printf("[SERVER] Connected to client...\n");
 
   read( from_client, buffer, sizeof(buffer) );
+  printf("[SERVER] Received client message: &s\n" , buffer);
+  
   process( buffer );
   write( to_client, buffer, sizeof(buffer));
+  printf("[SERVER] Message sent.\n");
   
   return 0;
 }

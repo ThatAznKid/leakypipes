@@ -10,8 +10,12 @@
 int main() {
 
   int to_server, from_server;
+  
+  printf("[CLIENT] Initializing handshake...\n");
 
   from_server = client_handshake( &to_server );
+  
+  printf("[CLIENT] Connected to server!\n");
   
   char buffer[MESSAGE_BUFFER_SIZE];
   printf("enter message: ");
@@ -21,7 +25,7 @@ int main() {
   
   write( to_server, buffer, sizeof(buffer) );
   read( from_server, buffer, sizeof(buffer) );
-  printf( "received: %s\n", buffer );
+  printf( "[CLIENT] Received: %s\n", buffer );
   
   return 0;
 }
