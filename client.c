@@ -18,15 +18,17 @@ int main() {
   
   printf("[CLIENT] Connected to server!\n");
   
-  char buffer[MESSAGE_BUFFER_SIZE];
-  printf("enter message: ");
-  fgets( buffer, sizeof(buffer), stdin );
-  char *p = strchr(buffer, '\n');
-  *p = 0;
-  
-  write( to_server, buffer, sizeof(buffer) );
-  read( from_server, buffer, sizeof(buffer) );
-  printf( "[CLIENT] Received: %s\n", buffer );
+  while (42) {
+    char buffer[MESSAGE_BUFFER_SIZE];
+    printf("enter message: ");
+    fgets( buffer, sizeof(buffer), stdin );
+    char *p = strchr(buffer, '\n');
+    *p = 0;
+    
+    write( to_server, buffer, sizeof(buffer) );
+    read( from_server, buffer, sizeof(buffer) );
+    printf( "[CLIENT] Received: %s\n", buffer );
+  }
   
   return 0;
 }
