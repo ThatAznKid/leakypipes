@@ -19,7 +19,7 @@ int main() {
   
   to_client = server_handshake( &from_client );
   
-  while (42) {
+  //  while (42) {
     printf("[SERVER] Connected to client...\n");
   
     read( from_client, buffer, sizeof(buffer) );
@@ -28,7 +28,7 @@ int main() {
     process( buffer );
     write( to_client, buffer, sizeof(buffer));
     printf("[SERVER] Message sent.\n");
-  }
+    //  }
   
   return 0;
 }

@@ -18,7 +18,7 @@ int main() {
   
   printf("[CLIENT] Connected to server!\n");
   
-  while (42) {
+  //  while (42) {
     char buffer[MESSAGE_BUFFER_SIZE];
     printf("enter message: ");
     fgets( buffer, sizeof(buffer), stdin );
@@ -28,7 +28,7 @@ int main() {
     write( to_server, buffer, sizeof(buffer) );
     read( from_server, buffer, sizeof(buffer) );
     printf( "[CLIENT] Received: %s\n", buffer );
-  }
+    //  }
   
   return 0;
 }

@@ -43,10 +43,11 @@ int client_handshake ( int * server ) {
     
     printf ("[CLIENT] Handshake started");
     
-    int n = getpid();
+    char n[10];
+    sprintf(n, "%d", getpid());
     mkfifo ( n , 0666 );
     
-    printf ("[CLIENT] Pipe %d created\n" , n);
+    printf ("[CLIENT] Pipe %s created\n" , n);
     *server = open ("waluigi", O_WRONLY);
     
     printf ("[CLIENT] Connected to WALUIGI...\n");
